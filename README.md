@@ -189,8 +189,18 @@ gridserch_forest = GridSearchCV(delivery_forest, forest_params, scoring='accurac
 <br>
 <hr>
 <br>
+> 7차 진행 (accuracy_score) : 보팅(voting)을 위해 각 모델 별 점수 확인
+로지스틱회귀(LogisticRegression, multi_class='multinomial') : 0.17678290181494674 {'C': 0.1, 'penalty': 'l2'}
+트리모델(DecisionTreeClassifier) : 0.7168912805786958 {'max_depth': 10, 'min_samples_leaf': 12, 'min_samples_split': 2}
+랜덤포레스트(RandomForestClassifier) : 0.739862958484482 {'max_depth': 30, 'min_samples_leaf': 2, 'min_samples_split': 8, 'n_estimators': 200} 
 
-> 7차 진행 (accuracy_score) : 데이터 정제 후 앞에서 얻은 하이퍼파라미터를 통해 진행
+로지스틱회귀(소프트맥스)를 활용했을 때 score이 매우 낮음으로 보팅 진행 시 악영향을 미칠 것으로 판단 시군구코드를 위도경도로 바꾸어 다시 한번 진행 필요
+
+<br>
+<hr>
+<br>
+
+> 8차 진행 (accuracy_score) : 데이터 정제 후 앞에서 얻은 하이퍼파라미터를 통해 진행
 - 시군구코드를 위도 경도로 지정해서 진행
 - 위도 경도 데이터 (https://torrms.tistory.com/55) ( 행정_법정동 서울경기 중심좌표.xlsx )
 - 위도 경도 데이터를 시군구별로 그룹핑하여 평균값으로 적용
