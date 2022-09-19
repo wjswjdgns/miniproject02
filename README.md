@@ -158,6 +158,7 @@ label_delivery_data['windspeed'] = label_delivery_data['windspeed'].replace([np.
 label_delivery_data = label_delivery_data.dropna() # nan 값이 들어가 있는 행 삭제
 </pre>
 
+stratify = 타겟값으로 지정
 <pre>
 from sklearn.model_selection import train_test_split
 X_train,X_test, y_train, y_test = train_test_split(X_delivery_data,y_delivery_data, test_size=0.2,shuffle=True, stratify = y_delivery_data, random_state=42)
