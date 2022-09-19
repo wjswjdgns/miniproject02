@@ -180,10 +180,19 @@ gridserch_forest = GridSearchCV(delivery_forest, forest_params, scoring='accurac
 
 데이터 정제 후 진행했을 경우 0.6 정도 상승!
 
-<strong> accuracy_score: 0.739862958484482 </strong> {'max_depth': 30, 'min_samples_leaf': 2, 'min_samples_split': 8, 'n_estimators': 200} 
-<strong> f1_weighted: 0.7273794106064417 </strong> {'max_depth': 30, 'min_samples_leaf': 2, 'min_samples_split': 8, 'n_estimators': 200}
+<strong> accuracy_score: 0.739862958484482 </strong> 
+{'max_depth': 30, 'min_samples_leaf': 2, 'min_samples_split': 8, 'n_estimators': 200} 
 
+<strong> f1_weighted: 0.7273794106064417 </strong> 
+{'max_depth': 30, 'min_samples_leaf': 2, 'min_samples_split': 8, 'n_estimators': 200}
 
 <br>
 <hr>
 <br>
+
+> 7차 진행 (accuracy_score) : 데이터 정제 후 앞에서 얻은 하이퍼파라미터를 통해 진행
+- 시군구코드를 위도 경도로 지정해서 진행
+- 위도 경도 데이터 (https://torrms.tistory.com/55) ( 행정_법정동 서울경기 중심좌표.xlsx )
+- 
+
+<img width="990" alt="image" src="https://user-images.githubusercontent.com/55444587/190971085-566df173-5144-43e2-ab6d-3581fb62f04d.png">
