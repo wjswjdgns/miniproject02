@@ -150,3 +150,10 @@ Onehot = pd.DataFrame(ohe.transform(label_delivery_data[['sectors']]), columns=c
 - 데이터 분리시 stratify 적용 (target 값의 비율이 균등하지 않기 때문에 y값으로 적용 필요)
 - 습도 값에서 행만 빼고 진행 (습도 값은 이상치마 빼면 정상 데이터로 확인되므로 해당되는 값만 제거)
 - 바람 세기를 log값으로 변경 후 진행
+
+<pre>
+label_delivery_data = label_delivery_data[label_delivery_data.humidity<100] #습도값 100인 행을 제거
+label_delivery_data['windspeed'] = np.log1p(label_delivery_data['windspeed']) #바람 세기를 로그 변환
+label_delivery_data['windspeed'] = label_delivery_data['windspeed'].replace([np.inf, -np.inf], np.nan) # 습도 log 변환 시 생기는 inf -inf 값을 nan값으로 변경
+label_delivery_data = label_delivery_data.dropna() # nan 값이 들어가 있는 행 삭제
+</pre>
