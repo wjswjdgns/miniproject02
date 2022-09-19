@@ -221,11 +221,12 @@ gridserch_forest = GridSearchCV(delivery_forest, forest_params, scoring='accurac
 gridserch_forest.fit(X_train, y_train)
 </pre> 
 
-시군구별코드를 제외하고 위도 경도로 진행 시 미세하게 상승 (약 0.01% 상승)
+시군구별코드를 제외하고 위도 경도로 진행 시 미세하게 상승 (약 0.001% 상승)
 
 <strong> accuracy_score: 0.7401047964530431 </strong> 
 {'max_depth': 20, 'min_samples_leaf': 2, 'min_samples_split': 8, 'n_estimators': 200}
  
-<strong> f1_weighted: 진행중 </strong> 
+<strong> f1_weighted: 0.7285605605253958 </strong> 
+{'max_depth': 20, 'min_samples_leaf': 2, 'min_samples_split': 8, 'n_estimators': 200}
 
 
