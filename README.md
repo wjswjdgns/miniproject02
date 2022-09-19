@@ -231,4 +231,4 @@ gridserch_forest.fit(X_train, y_train)
 
 <hr>
 위도 경도 값으로 변경 후 로지스틱 회귀(소프트맥스)를 진행했지만 비슷한 점수를 확인
-** f1_weighted: 0.1659957426186796 {'C': 0.01, 'penalty': 'l2'} **
+- f1_weighted: 0.1659957426186796 {'C': 0.01, 'penalty': 'l2'}
