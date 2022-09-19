@@ -189,7 +189,9 @@ gridserch_forest = GridSearchCV(delivery_forest, forest_params, scoring='accurac
 <br>
 <hr>
 <br>
+
 > 7차 진행 (accuracy_score) : 보팅(voting)을 위해 각 모델 별 점수 확인
+
 로지스틱회귀(LogisticRegression, multi_class='multinomial') : 0.17678290181494674 {'C': 0.1, 'penalty': 'l2'}
 트리모델(DecisionTreeClassifier) : 0.7168912805786958 {'max_depth': 10, 'min_samples_leaf': 12, 'min_samples_split': 2}
 랜덤포레스트(RandomForestClassifier) : 0.739862958484482 {'max_depth': 30, 'min_samples_leaf': 2, 'min_samples_split': 8, 'n_estimators': 200} 
