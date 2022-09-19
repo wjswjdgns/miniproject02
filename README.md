@@ -150,6 +150,7 @@ Onehot = pd.DataFrame(ohe.transform(label_delivery_data[['sectors']]), columns=c
 - 데이터 분리시 stratify 적용 (target 값의 비율이 균등하지 않기 때문에 y값으로 적용 필요)
 - 습도 값에서 행만 빼고 진행 (습도 값은 이상치마 빼면 정상 데이터로 확인되므로 해당되는 값만 제거)
 - 바람 세기를 log값으로 변경 후 진행
+- 균등하지 않은 타겟값으로 가중치를 주 위해 성능평가지표를 f1_weighted 사용
 
 <pre>
 label_delivery_data = label_delivery_data[label_delivery_data.humidity<100] #습도값 100인 행을 제거
@@ -163,3 +164,26 @@ stratify = 타겟값으로 지정
 from sklearn.model_selection import train_test_split
 X_train,X_test, y_train, y_test = train_test_split(X_delivery_data,y_delivery_data, test_size=0.2,shuffle=True, stratify = y_delivery_data, random_state=42)
 </pre>
+
+<pre>
+from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
+delivery_forest = RandomForestClassifier(random_state=42, criterion='entropy')
+
+forest_params ={ 'max_depth':[10,20,30,40,50,60],
+                'n_estimators':[100,150,200],
+                'min_samples_leaf':[2 ,4, 6, 8, 12, 18],
+               'min_samples_split':[2 ,4, 6, 8, 16, 20]}
+
+gridserch_forest = GridSearchCV(delivery_forest, forest_params, scoring='accuracy', cv=5, n_jobs=-1)
+</pre>
+
+데이터 정제 후 진행했을 경우 0.6 정도 상승!
+
+<strong> accuracy_score: 0.739862958484482 </strong> {'max_depth': 30, 'min_samples_leaf': 2, 'min_samples_split': 8, 'n_estimators': 200} 
+<strong> f1_weighted: 0.7273794106064417 </strong> {'max_depth': 30, 'min_samples_leaf': 2, 'min_samples_split': 8, 'n_estimators': 200}
+
+
+<br>
+<hr>
+<br>
