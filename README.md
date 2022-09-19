@@ -235,3 +235,10 @@ gridserch_forest.fit(X_train, y_train)
 <p>위도 경도 값으로 변경 후 로지스틱 회귀(소프트맥스)를 진행
 accuracy에서 <strong> 약 0.2 </strong> 정도의 수치 상승을 확인
 </p>
+
+:: 트리 모델 진행 시
+- accuracy: 0.7256751309955664 {'max_depth': 10, 'min_samples_leaf': 18, 'min_samples_split': 2}
+- f1_weighted: 0.714600106572267 {'max_depth': 10, 'min_samples_leaf': 18, 'min_samples_split': 2}
+<p>위도 경도 값으로 변경 후 트리모델을 진행
+accuracy에서 <strong> 약 0.1 </strong> 정도의 수치 상승을 확인
+</p>
