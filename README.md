@@ -54,7 +54,9 @@ max_depth = 50으로 진행했을 경우 (0.9874271887044267) 도출
 
 --> 해당 데이터는 교차 검증을 진행하지 않았기 때문에 제대로 된 값이 아님
 
+<br>
 <hr>
+<br>
 
 > 2차 진행 (accuracy_score) : 교차검증 및 그리드서치를 통해서 하이퍼파라미터 조정
 
@@ -79,7 +81,10 @@ max_depth는 더 이상 늘려도 의미가 없지만 n_estimators는 좀더 큰
 
 <strong> accuracy_score: 0.663664832281293 </strong>
 
+
+<br>
 <hr>
+<br>
 
 > 3차 진행 (accuracy_score) : 교차검증 및 그리드서치를 통해서 하이퍼파라미터 조정
 
@@ -102,6 +107,10 @@ gridserch_forest.fit(X_train, y_train)</pre>
 <strong> accuracy_score: 0.670400261464967 </strong>
 
 
+<br>
+<hr>
+<br>
+
 > 4차 진행 (accuracy_score) : 데이터 정제 후 앞에서 얻은 하이퍼파라미터를 통해 진행
 - 습도 특성 제거
 
@@ -115,6 +124,11 @@ scores = cross_val_score(delivery_forest, X_train, y_train, scoring='accuracy', 
 
 <strong> accuracy_score: 0.67500312 </strong>
 
+
+<br>
+<hr>
+<br>
+
 > 5차 진행 (accuracy_score) : 원핫 인코더를 활용하여 진행 (그리드 서치를 통해 결과 반복 확인)
 <pre>
 from sklearn.preprocessing import OneHotEncoder
@@ -126,6 +140,11 @@ Onehot = pd.DataFrame(ohe.transform(label_delivery_data[['sectors']]), columns=c
 0.5402940516292183 {'max_depth': 40, 'n_estimators': 150}
 
 --> 타겟값은 원핫 인코더를 사용할 필요가 없다.
+
+
+<br>
+<hr>
+<br>
 
 > 6차 진행 (accuracy_score) : 데이터 정제 후 앞에서 얻은 하이퍼파라미터를 통해 진행
 - 데이터 분리시 stratify 적용 (target 값의 비율이 균등하지 않기 때문에 y값으로 적용 필요)
