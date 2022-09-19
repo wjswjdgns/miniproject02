@@ -77,7 +77,7 @@ gridserch_forest.fit(X_train, y_train)
 {'criterion': 'entropy', 'max_depth': 20, 'n_estimators': 30}
 max_depth는 더 이상 늘려도 의미가 없지만 n_estimators는 좀더 큰 값을 줄 필요가 있음
 
-<strong> 0.663664832281293 </strong>
+<strong> accuracy_score: 0.663664832281293 </strong>
 
 
 
