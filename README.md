@@ -146,7 +146,7 @@ Onehot = pd.DataFrame(ohe.transform(label_delivery_data[['sectors']]), columns=c
 <hr>
 <br>
 
-> 6차 진행 (accuracy_score) : 데이터 정제 후 앞에서 얻은 하이퍼파라미터를 통해 진행
+> 6차 진행 (accuracy_score & f1_weighted) : 데이터 정제 후 앞에서 얻은 하이퍼파라미터를 통해 진행
 - 데이터 분리시 stratify 적용 (target 값의 비율이 균등하지 않기 때문에 y값으로 적용 필요)
 - 습도 값에서 행만 빼고 진행 (습도 값은 이상치마 빼면 정상 데이터로 확인되므로 해당되는 값만 제거)
 - 바람 세기를 log값으로 변경 후 진행
@@ -200,7 +200,7 @@ gridserch_forest = GridSearchCV(delivery_forest, forest_params, scoring='accurac
 <hr>
 <br>
 
-> 8차 진행 (accuracy_score) : 데이터 정제 후 앞에서 얻은 하이퍼파라미터를 통해 진행
+> 8차 진행 (accuracy_score & f1_weighted) : 데이터 정제 후 앞에서 얻은 하이퍼파라미터를 통해 진행
 - 시군구코드를 위도 경도로 지정해서 진행
 - 위도 경도 데이터 (https://torrms.tistory.com/55) ( 행정_법정동 서울경기 중심좌표.xlsx )
 - 위도 경도 데이터를 시군구별로 그룹핑하여 평균값으로 적용
