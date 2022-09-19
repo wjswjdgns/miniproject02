@@ -101,3 +101,16 @@ gridserch_forest.fit(X_train, y_train)</pre>
 
 <strong> accuracy_score: 0.670400261464967 </strong>
 
+
+> 4차 진행 (accuracy_score) : 데이터 정제 후 앞에서 얻은 하이퍼파라미터를 통해 진행
+- 습도 특성 제거
+
+<pre>
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import cross_val_score
+delivery_forest = RandomForestClassifier(random_state=42, criterion='entropy', max_depth=20, n_estimators=90)
+scores = cross_val_score(delivery_forest, X_train, y_train, scoring='accuracy', cv=5, n_jobs=-1)</pre>
+
+미세하지만 예상 결과가 높아진 것을 확인 (0.005 상승)
+
+<strong> accuracy_score: 0.67500312 </strong>
