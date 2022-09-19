@@ -111,6 +111,23 @@ from sklearn.model_selection import cross_val_score
 delivery_forest = RandomForestClassifier(random_state=42, criterion='entropy', max_depth=20, n_estimators=90)
 scores = cross_val_score(delivery_forest, X_train, y_train, scoring='accuracy', cv=5, n_jobs=-1)</pre>
 
-미세하지만 예상 결과가 높아진 것을 확인 (0.005 상승)
+--> 미세하지만 예상 결과가 높아진 것을 확인 (0.005 상승)
 
 <strong> accuracy_score: 0.67500312 </strong>
+
+> 5차 진행 (accuracy_score) : 원핫 인코더를 활용하여 진행 (그리드 서치를 통해 결과 반복 확인)
+<pre>
+from sklearn.preprocessing import OneHotEncoder
+ohe = OneHotEncoder(sparse=False)
+ohe.fit(label_delivery_data[['sectors']])
+Onehot = pd.DataFrame(ohe.transform(label_delivery_data[['sectors']]), columns=city_list, dtype='int64')</pre>
+
+0.5384854697021091 {'max_depth': 40, 'n_estimators': 100}
+0.5402940516292183 {'max_depth': 40, 'n_estimators': 150}
+
+--> 타겟값은 원핫 인코더를 사용할 필요가 없다.
+
+> 6차 진행 (accuracy_score) : 데이터 정제 후 앞에서 얻은 하이퍼파라미터를 통해 진행
+- 데이터 분리시 stratify 적용 (target 값의 비율이 균등하지 않기 때문에 y값으로 적용 필요)
+- 습도 값에서 행만 빼고 진행 (습도 값은 이상치마 빼면 정상 데이터로 확인되므로 해당되는 값만 제거)
+- 바람 세기를 log값으로 변경 후 진행
