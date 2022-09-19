@@ -229,6 +229,6 @@ gridserch_forest.fit(X_train, y_train)
 <strong> f1_weighted: 0.7285605605253958 </strong> 
 {'max_depth': 20, 'min_samples_leaf': 2, 'min_samples_split': 8, 'n_estimators': 200}
 
-로지스틱 회귀 진행 시
+:: 로지스틱 회귀 진행 시
 - f1_weighted: 0.1659957426186796 {'C': 0.01, 'penalty': 'l2'}
 <p>위도 경도 값으로 변경 후 로지스틱 회귀(소프트맥스)를 진행했지만 비슷한 점수를 확인 보팅 진행 시 빼는 방향이 필요</p>
