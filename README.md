@@ -58,6 +58,19 @@ max_depth = 50으로 진행했을 경우 (0.9874271887044267) 도출
 
 > 2차 진행 (accuracy_score) : 교차검증 및 그리드서치를 통해서 하이퍼파라미터 조정
 
+<code>
+from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
+delivery_forest = RandomForestClassifier(random_state=42)
+    
+forest_params ={'criterion':['gini','entropy']
+                'max_depth':[10,20,30,40,50,60], 
+                'n_estimators':[10,20,30]}
+    
+gridserch_forest = GridSearchCV(delivery_forest, forest_params, scoring='accuracy cv=5, n_jobs=-1)
+gridserch_forest.fit(X_train, y_train)
+</code>
+
 교차검증 및 그리드 서치 결과 
 {'criterion': 'entropy', 'max_depth': 20, 'n_estimators': 30}
 max_depth는 더 이상 늘려도 의미가 없지만 n_estimators는 좀더 큰 값을 줄 필요가 있음
