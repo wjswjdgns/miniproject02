@@ -157,3 +157,8 @@ label_delivery_data['windspeed'] = np.log1p(label_delivery_data['windspeed']) #�
 label_delivery_data['windspeed'] = label_delivery_data['windspeed'].replace([np.inf, -np.inf], np.nan) # 습도 log 변환 시 생기는 inf -inf 값을 nan값으로 변경
 label_delivery_data = label_delivery_data.dropna() # nan 값이 들어가 있는 행 삭제
 </pre>
+
+<pre>
+from sklearn.model_selection import train_test_split
+X_train,X_test, y_train, y_test = train_test_split(X_delivery_data,y_delivery_data, test_size=0.2,shuffle=True, stratify = y_delivery_data, random_state=42)
+</pre>
