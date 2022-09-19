@@ -193,6 +193,29 @@ gridserch_forest = GridSearchCV(delivery_forest, forest_params, scoring='accurac
 > 7차 진행 (accuracy_score) : 데이터 정제 후 앞에서 얻은 하이퍼파라미터를 통해 진행
 - 시군구코드를 위도 경도로 지정해서 진행
 - 위도 경도 데이터 (https://torrms.tistory.com/55) ( 행정_법정동 서울경기 중심좌표.xlsx )
-- 
+- 위도 경도 데이터를 시군구별로 그룹핑하여 평균값으로 적용
 
 <img width="990" alt="image" src="https://user-images.githubusercontent.com/55444587/190971085-566df173-5144-43e2-ab6d-3581fb62f04d.png">
+
+<pre>
+from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
+delivery_forest = RandomForestClassifier(random_state=42, criterion='entropy')
+
+forest_params ={ 'max_depth':[10,20,30,40,50,60],
+                'n_estimators':[100,150,200],
+                'min_samples_leaf':[2 ,4, 6, 8, 12, 18],
+               'min_samples_split':[2 ,4, 6, 8, 16, 20]}
+
+gridserch_forest = GridSearchCV(delivery_forest, forest_params, scoring='accuracy', cv=5, n_jobs=-1)
+gridserch_forest.fit(X_train, y_train)
+</pre> 
+
+시군구별코드를 제외하고 위도 경도로 진행 시 미세하게 상승 (약 0.01% 상승)
+
+<strong> accuracy_score: 0.7401047964530431 </strong> 
+{'max_depth': 20, 'min_samples_leaf': 2, 'min_samples_split': 8, 'n_estimators': 200}
+ 
+<strong> f1_weighted: 진행중 </strong> 
+
+
