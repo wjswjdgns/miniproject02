@@ -320,6 +320,9 @@ for clf in (softmax_reg, delivery_forest, log_reg, svm_clf,voting_clf):
 
 <table>
     <hd>test</td>
+    <td>test2</td>
+    <td>test3</td>
+    <td>test4</td>
     <tr>
         <td></td>
         <td></td>
