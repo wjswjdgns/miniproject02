@@ -244,3 +244,87 @@ accuracy에서 <strong> 약 0.2 </strong> 정도의 수치 상승을 확인
 <p>위도 경도 값으로 변경 후 트리모델을 진행
 accuracy에서 <strong> 약 0.1 </strong> 정도의 수치 상승을 확인
 </p>
+
+> 9차 진행 (accuracy_score & f1_weighted) : 확인 된 최적 파라미터를 적용하여 보팅(Voting)을 진행
+- 로지스틱회귀(소프트맥스) : multi_class='multinomial', C=0.01
+- 랜덤포레스트 : criterion='entropy', max_depth=20, min_samples_leaf=2, min_samples_split=8, n_estimators=200
+- 트리 : criterion='entropy', max_depth=10, min_samples_leaf=18, min_samples_split=2
+- SVC : probability=True
+
+<pre>
+from sklearn.ensemble import VotingClassifier
+from sklearn.ensemble import  RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import SVC
+
+softmax_reg = LogisticRegression(multi_class='multinomial', C=0.01 ,random_state=42)
+delivery_forest = RandomForestClassifier(random_state=42, criterion='entropy', max_depth=20, min_samples_leaf=2, min_samples_split=8, n_estimators=200)
+log_reg = DecisionTreeClassifier(random_state=42, criterion='entropy', max_depth=10, min_samples_leaf=18, min_samples_split=2)
+svm_clf = SVC(probability=True,random_state =42) #비선형구조로 probability 진행
+
+voting_clf = VotingClassifier(
+    estimators = [('soft_rg', softmax_reg),('rf', delivery_forest),('tree', log_reg),('svm', svm_clf)],
+    voting = 'hard'
+)
+
+from  sklearn.metrics import accuracy_score
+for clf in (softmax_reg, delivery_forest, log_reg, svm_clf,voting_clf):
+    clf.fit(X_train, y_train)
+    y_pred = clf.predict(X_train)
+    print(clf.__class__.__name__,accuracy_score(y_train, y_pred))
+</pre>
+
+보팅(hard) 방식으로 진행했을 경우 오히려 낮은 점수를 확인 할 수 있음.
+
+<strong>accuracy</strong>
+LogisticRegression 0.3286981056025796
+RandomForestClassifier 0.8708988311164853
+DecisionTreeClassifier 0.7480048367593712
+SVC 0.34437726723095524
+VotingClassifier 0.5908907698508666
+
+<strong>f1_weighted</strong>
+LogisticRegression 0.163557323112205
+RandomForestClassifier 0.8667052932008374
+DecisionTreeClassifier 0.7378952288876722
+SVC 0.22289124419271522
+VotingClassifier 0.5054666809348248
+
+<pre>
+from sklearn.ensemble import VotingClassifier
+from sklearn.ensemble import  RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import SVC
+
+softmax_reg = LogisticRegression(multi_class='multinomial', C=0.01 ,random_state=42)
+delivery_forest = RandomForestClassifier(random_state=42, criterion='entropy', max_depth=20, min_samples_leaf=2, min_samples_split=8, n_estimators=200)
+log_reg = DecisionTreeClassifier(random_state=42, criterion='entropy', max_depth=10, min_samples_leaf=18, min_samples_split=2)
+svm_clf = SVC(probability=True,random_state =42) #비선형구조로 probability 진행
+
+voting_clf = VotingClassifier(
+    estimators = [('soft_rg', softmax_reg),('rf', delivery_forest),('tree', log_reg),('svm', svm_clf)],
+    voting = 'soft'
+)
+
+from  sklearn.metrics import accuracy_score
+for clf in (softmax_reg, delivery_forest, log_reg, svm_clf,voting_clf):
+    clf.fit(X_train, y_train)
+    y_pred = clf.predict(X_test)
+    print(clf.__class__.__name__,accuracy_score(y_test, y_pred))
+</pre>
+
+보팅(soft) 형식으로 진행했을 때 보팅 방식에서도 높은 점수를 제공하지만 랜덤포레스트 단일을 사용 했으 때보다 낮으 점수르 확인
+
+<strong> LogisticRegression </strong>
+accuracy 0.3295848448206368 , f1_weighted 0.1659957426186796
+
+<strong> RandomForestClassifier </strong>
+accuracy 0.7401047964530431 , f1_weighted 0.7285605605253958
+
+<strong> DecisionTreeClassifier </strong>
+accuracy 0.7256751309955664 , f1_weighted 0.714600106572267
+
+<strong> SVC </strong>
+accuracy 0.3443772672309553 , f1_weighted 0.22281961005425796
