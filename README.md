@@ -245,6 +245,10 @@ accuracy에서 <strong> 약 0.2 </strong> 정도의 수치 상승을 확인
 accuracy에서 <strong> 약 0.1 </strong> 정도의 수치 상승을 확인
 </p>
 
+<br>
+<hr>
+<br>
+
 > 9차 진행 (accuracy_score & f1_weighted) : 확인 된 최적 파라미터를 적용하여 보팅(Voting)을 진행
 - 로지스틱회귀(소프트맥스) : multi_class='multinomial', C=0.01
 - 랜덤포레스트 : criterion='entropy', max_depth=20, min_samples_leaf=2, min_samples_split=8, n_estimators=200
