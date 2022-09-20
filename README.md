@@ -324,7 +324,7 @@ for clf in (softmax_reg, delivery_forest, log_reg, svm_clf,voting_clf):
 | f1_weighted | Text | Text | Text | Text | Text |
 
 
-성능측정지표  \ 모델  | LogisticRegression | SVC | DecisionTreeClassifier | RandomForestClassifier | VotingClassifier
+성능측정지표 | LogisticRegression | SVC | DecisionTreeClassifier | RandomForestClassifier | VotingClassifier
 --- | --- | --- | --- | --- | ---
 accuracy | 0.3295848448206368 | 0.3443772672309553 | 0.7256751309955664 | 0.7401047964530431 | 0.732688432083837
 f1_weighted | 0.1659957426186796 | 0.22281961005425796 | 0.714600106572267 | 0.7285605605253958 | 0.7140719921596457
