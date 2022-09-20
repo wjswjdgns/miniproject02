@@ -332,3 +332,8 @@ accuracy 0.7256751309955664 , f1_weighted 0.714600106572267
 <br>
 <strong> SVC </strong><br>
 accuracy 0.3443772672309553 , f1_weighted 0.22281961005425796
+<br>
+<br>
+<strong> VotingClassifier </strong><br>
+accuracy 0.732688432083837 , f1_weighted 0.7140719921596457
+
