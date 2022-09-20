@@ -318,7 +318,7 @@ for clf in (softmax_reg, delivery_forest, log_reg, svm_clf,voting_clf):
 
 보팅(soft) 형식으로 진행했을 때 보팅 방식에서도 높은 점수를 제공하지만 랜덤포레스트 단일을 사용 했으 때보다 낮은 점수를 확인
 
-| 성능측정지표  \ 모델 | LogisticRegression | SVC | DecisionTreeClassifier | RandomForestClassifier | VotingClassifier |
+| 성능측정지표 | LogisticRegression | SVC | DecisionTreeClassifier | RandomForestClassifier | VotingClassifier |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | accuracy | Title | Title | Title | Title | Title |
 | f1_weighted | Text | Text | Text | Text | Text |
