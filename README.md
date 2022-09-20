@@ -250,7 +250,7 @@ accuracy에서 <strong> 약 0.1 </strong> 정도의 수치 상승을 확인
 - 랜덤포레스트 : criterion='entropy', max_depth=20, min_samples_leaf=2, min_samples_split=8, n_estimators=200
 - 트리 : criterion='entropy', max_depth=10, min_samples_leaf=18, min_samples_split=2
 - SVC : probability=True
-
+<br>
 <pre>
 from sklearn.ensemble import VotingClassifier
 from sklearn.ensemble import  RandomForestClassifier
@@ -274,14 +274,14 @@ for clf in (softmax_reg, delivery_forest, log_reg, svm_clf,voting_clf):
     y_pred = clf.predict(X_train)
     print(clf.__class__.__name__,accuracy_score(y_train, y_pred))
 </pre>
-
+<br>
 보팅(hard) 방식으로 진행했을 경우 오히려 낮은 점수를 확인 할 수 있음.
 
 성능측정지표 | LogisticRegression | SVC | DecisionTreeClassifier | RandomForestClassifier | VotingClassifier
 --- | --- | --- | --- | --- | ---
 accuracy | 0.3295848448206368 | 0.3443772672309553 | 0.7256751309955664 | 0.7401047964530431 | 0.5500201531640467
 f1_weighted | 0.1659957426186796 | 0.22281961005425796 | 0.714600106572267 | 0.7285605605253958 | 0.4642677547865235
-
+<br>
 <pre>
 from sklearn.ensemble import VotingClassifier
 from sklearn.ensemble import  RandomForestClassifier
@@ -305,7 +305,7 @@ for clf in (softmax_reg, delivery_forest, log_reg, svm_clf,voting_clf):
     y_pred = clf.predict(X_test)
     print(clf.__class__.__name__,accuracy_score(y_test, y_pred))
 </pre>
-
+<br>
 보팅(soft) 형식으로 진행했을 때 보팅 방식에서도 높은 점수를 제공하지만 랜덤포레스트 단일을 사용 했으 때보다 낮은 점수를 확인
 
 성능측정지표 | LogisticRegression | SVC | DecisionTreeClassifier | RandomForestClassifier | VotingClassifier
