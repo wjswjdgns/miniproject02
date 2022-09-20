@@ -2,13 +2,13 @@
 
 <img width="1180" alt="image" src="https://user-images.githubusercontent.com/55444587/191211527-08fdc50a-6152-402e-992c-8fd03bf96eeb.png">
 
-**개요**
+## 개요 
 Covid19으로 많은 요식업 자영업자들은 높은 임대료와 치솟는 물가에 배달 전문[위주] 업체로 변경해 배달 시장이 크게 성장했다.
 이에 맞춰 자영업자들이 보다 효율적인 가게 운영을 위해 배달 날씨 데이터 분석을 통한 배달 수요를 예측해 배달 플랫폼 입장 사장님들이 참고할 수 있는 단기적 운영 전략 정보르 제공한다.
 
 <hr>
-
-## 데이터 사용
+## 진행 과정
+### 데이터 사용
 - 날씨 별 배달 수요 : https://www.bigdata-telecom.kr/invoke/SOKBP2603/?goodsCode=KGUWTHRDLVRDF
 - 인구데이터 : https://www.bigdata-telecom.kr/invoke/SOKBP2603/?goodsCode=KGUPOPLTNINFO
 - 미세먼지 공공 데이터 : https://data.seoul.go.kr/dataList/OA-2720/S/1/datasetView.do
