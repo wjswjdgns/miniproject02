@@ -8,6 +8,7 @@ Covid19으로 많은 요식업 자영업자들은 높은 임대료와 치솟는 
 
 <hr>
 ## 진행 과정
+
 ### 데이터 사용
 - 날씨 별 배달 수요 : https://www.bigdata-telecom.kr/invoke/SOKBP2603/?goodsCode=KGUWTHRDLVRDF
 - 인구데이터 : https://www.bigdata-telecom.kr/invoke/SOKBP2603/?goodsCode=KGUPOPLTNINFO
