@@ -277,20 +277,10 @@ for clf in (softmax_reg, delivery_forest, log_reg, svm_clf,voting_clf):
 
 보팅(hard) 방식으로 진행했을 경우 오히려 낮은 점수를 확인 할 수 있음.
 
-<strong> LogisticRegression </strong> <br> 
-accuracy 0.3295848448206368 , f1_weighted 0.1659957426186796
-<br><br>
-<strong> RandomForestClassifier </strong><br> 
-accuracy 0.7401047964530431 , f1_weighted 0.7285605605253958
-<br><br>
-<strong> DecisionTreeClassifier </strong><br> 
-accuracy 0.7256751309955664 , f1_weighted 0.714600106572267
-<br><br>
-<strong> SVC </strong><br>
-accuracy 0.3443772672309553 , f1_weighted 0.22281961005425796
-<br><br>
-<strong> VotingClassifier </strong><br>
-accuracy 0.5500201531640467 , f1_weighted 0.4642677547865235
+성능측정지표 | LogisticRegression | SVC | DecisionTreeClassifier | RandomForestClassifier | VotingClassifier
+--- | --- | --- | --- | --- | ---
+accuracy | 0.3295848448206368 | 0.3443772672309553 | 0.7256751309955664 | 0.7401047964530431 | 0.5500201531640467
+f1_weighted | 0.1659957426186796 | 0.22281961005425796 | 0.714600106572267 | 0.7285605605253958 | 0.4642677547865235
 
 <pre>
 from sklearn.ensemble import VotingClassifier
