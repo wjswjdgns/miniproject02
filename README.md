@@ -1,5 +1,8 @@
 # miniproject02
 날씨에 따른 배달 수요 예측
+
+<img width="1180" alt="image" src="https://user-images.githubusercontent.com/55444587/191211527-08fdc50a-6152-402e-992c-8fd03bf96eeb.png">
+
 <hr>
 
 ## 데이터 사용
