@@ -316,3 +316,16 @@ for clf in (softmax_reg, delivery_forest, log_reg, svm_clf,voting_clf):
 --- | --- | --- | --- | --- | ---
 accuracy | 0.3295848448206368 | 0.3443772672309553 | 0.7256751309955664 | 0.7401047964530431 | 0.732688432083837
 f1_weighted | 0.1659957426186796 | 0.22281961005425796 | 0.714600106572267 | 0.7285605605253958 | 0.7140719921596457
+
+<br>
+<br>
+<br>
+
+> 최종 (f1_weighted) : 마지막으로 테스트 데이터를 가지고 결과값 도출
+- LogisticRegression 0.1633754235601878
+- RandomForestClassifier 0.7246082527986596
+- DecisionTreeClassifier 0.7121116719322403
+- SVC 0.22303770347064356
+- VotingClassifier 0.7068790521614212
+
+<strong>랜덤 포레스트에서 가장 높은 점수로 얻을 수 있다.</strong>
